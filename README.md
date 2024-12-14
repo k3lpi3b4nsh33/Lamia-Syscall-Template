@@ -510,11 +510,7 @@ VOID ExecutePayload(IN PVOID pInjectedPayload) {
 #### `MapDllFromKnownDllDir`
 
 - **Functionality**: Loads the specified DLL from the KnownDlls directory.
-
-- Implementation
-
-  :
-
+- Implementation:
   - Constructs the full path to the DLL.
   - Opens the DLL's section using `NtOpenSection`.
   - Maps the section into the current process's address space using `NtMapViewOfSection`.
@@ -523,11 +519,7 @@ VOID ExecutePayload(IN PVOID pInjectedPayload) {
 #### `VectoredExceptionHandler`
 
 - **Functionality**: Handles exceptions, particularly access violations.
-
-- Implementation
-
-  :
-
+- Implementation:
   - Checks if the exception code is `EXCEPTION_ACCESS_VIOLATION` and whether the exception address lies within the local `.text` section.
   - If true, modifies memory protection using `NtProtectVirtualMemory` to allow writing.
   - Copies the unhooked `.text` section to the local memory using `Memcpy`.
