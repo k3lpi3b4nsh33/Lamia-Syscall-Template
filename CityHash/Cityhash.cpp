@@ -11,7 +11,6 @@
 #define FUNCTION_SUFFIX "_CH"
 #define CHASH(STR)    ( simple_cityhash( (LPCSTR)STR ) )
 
-// 简化版的 CityHash
 UINT32 simple_cityhash(LPCSTR cString) {
     int length = strlen(cString);
     uint64_t hash = FIRST_HASH;
@@ -29,18 +28,23 @@ UINT32 simple_cityhash(LPCSTR cString) {
 }
 
 const char* GOBAL_FUNCTION[] = {
-    "NtOpenSection",
-    "NtMapViewOfSection",
-    "NtProtectVirtualMemory",
-    "NtUnmapViewOfSection",
+    "AddVectoredExceptionHandler",
+    "CreateThreadpoolTimer",
+    "LoadLibraryA",
     "NtAllocateVirtualMemory",
     "NtDelayExecution",
-    "LoadLibraryA",
-    "CreateThreadpoolTimer",
-    "SetThreadpoolTimer",
-    "WaitForSingleObject",
-    "AddVectoredExceptionHandler",
+    "NtFlushInstructionCache",
+    "NtMapViewOfSection",
+    "NtOpenSection",
+    "NtProtectVirtualMemory",
+    "NtQueryInformationProcess",
+    "NtUnmapViewOfSection",
     "RemoveVectoredExceptionHandler",
+    "RtlAddFunctionTable",
+    "SetThreadpoolTimer",
+    "VirtualAlloc",
+    "VirtualProtect",
+    "WaitForSingleObject",
     NULL
 };
 
@@ -52,7 +56,6 @@ const char* GOBAL_MODULE[] = {
     NULL
 };
 
-// 替换 '.' 为 ''
 void format_module_name(const char* input, char* output) {
     size_t j = 0;
     for (size_t i = 0; input[i] != '\0'; ++i) {
@@ -60,27 +63,19 @@ void format_module_name(const char* input, char* output) {
             output[j++] = input[i];
         }
     }
-    output[j] = '\0'; // 确保输出字符串以 '\0' 结束
-}
+    output[j] = '\0';
 
-// 通用打印函数
 void print_hash_definitions(const char* suffix, const char* array[], int format_name) {
-    char formatted_name[256]; // 用于存储格式化后的名称
-    char temp_name[256];      // 用于存储临时字符串
-    for (size_t i = 0; array[i] != NULL; ++i) {
-        // 根据需求格式化模块名
-        if (format_name) {
-            format_module_name(array[i], temp_name); // 格式化模块名
-        }
+    char formatted_name[256]; 
+    char temp_name[256];          for (size_t i = 0; array[i] != NULL; ++i) {
+                if (format_name) {
+            format_module_name(array[i], temp_name);         }
         else {
-            strncpy_s(temp_name, sizeof(temp_name), array[i], _TRUNCATE); // 安全复制字符串
-        }
+            strncpy_s(temp_name, sizeof(temp_name), array[i], _TRUNCATE);         }
 
-        // 拼接后缀，确保安全
-        sprintf_s(formatted_name, sizeof(formatted_name), "%s%s", temp_name, suffix);
+                sprintf_s(formatted_name, sizeof(formatted_name), "%s%s", temp_name, suffix);
 
-        // 打印格式化的宏定义
-        printf("#define %-40s 0x%0.8X\n", formatted_name, CHASH(array[i]));
+                printf("#define %-40s 0x%0.8X\n", formatted_name, CHASH(array[i]));
     }
     printf("\n");
 }
@@ -88,13 +83,11 @@ void print_hash_definitions(const char* suffix, const char* array[], int format_
 
 
 int main() {
-    // 打印函数哈希定义
-    print_hash_definitions(FUNCTION_SUFFIX, GOBAL_FUNCTION, 0);
+        print_hash_definitions(FUNCTION_SUFFIX, GOBAL_FUNCTION, 0);
 
     
 
-    // 打印模块哈希定义（需要格式化模块名）
-    print_hash_definitions(FUNCTION_SUFFIX, GOBAL_MODULE, 1);
+        print_hash_definitions(FUNCTION_SUFFIX, GOBAL_MODULE, 1);
 
     return 0;
 }
