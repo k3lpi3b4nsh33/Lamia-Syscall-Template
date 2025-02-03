@@ -605,6 +605,7 @@ function UnhookAllLoadedDlls() {
 
 # TODO
 
-- [ ] Applying indirect syscall technology to reflective DLL injection
+- [x] Applying indirect syscall technology to reflective DLL injection
 - [ ] Getting Payload  from Resource
-- [ ] Getting Payload from web
+- [x] Getting Payload from web
+- [x] Send information through the pipe to clear the RDI-DLL memory
