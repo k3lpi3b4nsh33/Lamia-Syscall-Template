@@ -13,21 +13,74 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="winhttp">
+      <UniqueIdentifier>{11da2c27-b8bc-4f90-ba2f-db5335efa5f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{fde92333-aad2-4503-9f8e-9e9d1a3222c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lamia">
+      <UniqueIdentifier>{b6edf5b0-7a92-4bd1-a6bb-f607cd2d86f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reflective">
+      <UniqueIdentifier>{05ebead1-9cab-481e-81c3-1b6a1aa74844}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Operation">
+      <UniqueIdentifier>{97edf6f7-7d86-4950-9ccf-ed73e9e89556}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="winhttp.h">
+      <Filter>winhttp</Filter>
     </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Debug.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Reflective.h">
+      <Filter>Reflective</Filter>
+    </ClInclude>
+    <ClInclude Include="Structs.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="FunctionPointers.h">
+      <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dllmain.cpp">
+    <ClCompile Include="dllmain.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="pch.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="winhttp.c">
+      <Filter>winhttp</Filter>
     </ClCompile>
+    <ClCompile Include="..\Syscall\Inject.c">
+      <Filter>Lamia</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Syscall\Lamia.c">
+      <Filter>Lamia</Filter>
+    </ClCompile>
+    <ClCompile Include="Reflective.c">
+      <Filter>Reflective</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Syscall\ApiHashing.c">
+      <Filter>Operation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Syscall\unhook.c">
+      <Filter>Operation</Filter>
+    </ClCompile>
+    <ClCompile Include="Common.c">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.c">
+      <Filter>Common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="..\Syscall\Lsyscall.asm">
+      <Filter>Lamia</Filter>
+    </MASM>
   </ItemGroup>
 </Project>
