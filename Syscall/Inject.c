@@ -5,7 +5,7 @@
 #include "FunctionPointers.h"
 #include "Debug.h"
 
-extern NT_API g_Nt;
+NT_API g_Nt;
 
 #define		PAGE_SIZE					4096
 #define		SET_TO_MULTIPLE_OF_4096(X)	( ((X) + 4095) & (~4095) )
