@@ -35,3 +35,16 @@ typedef PVOID(WINAPI* fnAddVectoredExceptionHandler)(ULONG First, PVECTORED_EXCE
 // https://learn.microsoft.com/en-us/windows/win32/api/errhandlingapi/nf-errhandlingapi-removevectoredexceptionhandler
 //
 typedef ULONG(WINAPI* fnRemoveVectoredExceptionHandler)(PVOID Handle);
+
+
+typedef HMODULE(WINAPI* fnLoadLibraryA)(LPCSTR lpLibFileName);
+
+typedef LPVOID(WINAPI* fnVirtualAlloc)(LPVOID lpAddress, SIZE_T dwSize, DWORD flAllocationType, DWORD flProtect);
+
+typedef BOOL(WINAPI* fnVirtualProtect)(LPVOID lpAddress, SIZE_T dwSize, DWORD flNewProtect, PDWORD lpflOldProtect);
+
+typedef BOOLEAN(WINAPI* fnRtlAddFunctionTable)(PRUNTIME_FUNCTION FunctionTable, DWORD EntryCount, DWORD64 BaseAddress);
+
+typedef NTSTATUS(NTAPI* fnNtFlushInstructionCache)(HANDLE hProcess, PVOID BaseAddress, ULONG NumberOfBytesToFlush);
+
+typedef BOOL(WINAPI* fnDllMain)(HINSTANCE, DWORD, LPVOID);

@@ -64,7 +64,7 @@ FARPROC GetProcAddressH(IN HMODULE hModule, IN UINT32 uApiHash)
 
 					if (((PCHAR)cForwarderName)[i] == '.') {
 						dwDotOffset = i;
-						cForwarderName[i] = NULL;
+						cForwarderName[i] = '\0';
 						break;
 					}
 				}
