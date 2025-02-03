@@ -16,20 +16,24 @@
 #define STATUS_OBJECT_NAME_NOT_FOUND	0xC0000034
 
 // NT Kernel Function City hash
-#define NtOpenSection_CH                         0xF1D0ECCE
-#define NtMapViewOfSection_CH                    0xBE11E70C
-#define NtProtectVirtualMemory_CH                0x17BEBF14
-#define NtUnmapViewOfSection_CH                  0x31013906
 #define NtAllocateVirtualMemory_CH               0xAA97B513
 #define NtDelayExecution_CH                      0x73276926
+#define NtFlushInstructionCache_CH               0xE6DFAD9E
+#define NtMapViewOfSection_CH                    0xBE11E70C
+#define NtOpenSection_CH                         0xF1D0ECCE
+#define NtProtectVirtualMemory_CH                0x17BEBF14
+#define NtUnmapViewOfSection_CH                  0x31013906
 
 // Common Function City hash
-#define LoadLibraryA_CH                          0x64DD6C03
-#define CreateThreadpoolTimer_CH                 0x6B96B097
-#define SetThreadpoolTimer_CH                    0x884796DC
-#define WaitForSingleObject_CH                   0x080DCD41
 #define AddVectoredExceptionHandler_CH           0xF7386BCE
+#define CreateThreadpoolTimer_CH                 0x6B96B097
+#define LoadLibraryA_CH                          0x64DD6C03
 #define RemoveVectoredExceptionHandler_CH        0x7B6AC836
+#define RtlAddFunctionTable_CH                   0xE697254B
+#define SetThreadpoolTimer_CH                    0x884796DC
+#define VirtualAlloc_CH                          0x9E2B3568
+#define VirtualProtect_CH                        0xCE2711AB
+#define WaitForSingleObject_CH                   0x080DCD41
 
 // DLL name City hash
 #define kernel32dll_CH                           0xD009B80C
